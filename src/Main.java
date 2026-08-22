@@ -4,17 +4,14 @@ public class Main {
 
         Player player = new Player(1, 100.0, "Ali");
 
-        System.out.println("Initial:");
-        System.out.println(player);
+        System.out.println("Initial balance: " + player.getBalance());
 
-        player.deposit(50);
+        try {
+            player.withdraw(150);
+        } catch (InsufficientFundsException e) {
+            System.out.println("Withdrawal failed: " + e.getMessage());
+        }
 
-        System.out.println("\nAfter deposit:");
-        System.out.println(player);
-
-        player.withdraw(20);
-
-        System.out.println("\nAfter withdrawal:");
-        System.out.println(player);
+        System.out.println("Final balance: " + player.getBalance());
     }
 }

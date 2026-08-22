@@ -16,11 +16,21 @@ public class Player {
 
 
     public void deposit(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be positive!");
+        }
         this.balance += amount;
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be positive!");
+        }
+        if (amount > balance ) {
+            throw new InsufficientFundsException("Insufficient funds!");
+        }
         this.balance -= amount;
+
     }
 
     @Override
