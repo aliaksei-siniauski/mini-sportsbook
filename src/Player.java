@@ -4,16 +4,19 @@ public class Player {
     private String username;
 
     public Player(int id, double balance, String username) {
+        if (balance < 0) {
+            throw new IllegalArgumentException("Initial balance cannot be negative");
+        }
         this.id = id;
         this.balance = balance;
         this.username = username;
+
     }
 
     // getters
     public double getBalance() {
         return balance;
     }
-
 
     public void deposit(double amount) {
         if (amount <= 0) {
@@ -26,7 +29,7 @@ public class Player {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive!");
         }
-        if (amount > balance ) {
+        if (amount > balance) {
             throw new InsufficientFundsException("Insufficient funds!");
         }
         this.balance -= amount;
