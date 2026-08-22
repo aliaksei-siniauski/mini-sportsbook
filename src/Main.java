@@ -1,7 +1,20 @@
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Mini Sportsbook");
-        System.out.println();
-        System.out.println("Let's make it");
+
+        Player player = new Player(1, 100.0, "Ali");
+
+        System.out.println("Initial:");
+        System.out.println(player);
+
+        player.deposit(50);
+
+        System.out.println("\nAfter deposit:");
+        System.out.println(player);
+
+        player.withdraw(20);
+
+        System.out.println("\nAfter withdrawal:");
+        System.out.println(player);
     }
 }
